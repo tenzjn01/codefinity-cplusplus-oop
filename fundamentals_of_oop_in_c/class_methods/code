@@ -1,0 +1,27 @@
+#include <iostream>
+
+class Product {
+public:
+    float price;
+    float discount;
+
+    float getFinalPrice();
+};
+
+float Product::getFinalPrice() {
+    if(discount > 50)
+        discount = 50;
+    float FinalPrice = (price * discount / 100);
+    
+    return price - FinalPrice;
+}
+
+int main() {
+    Product item;
+    item.price = 100.0f;
+    item.discount = 60.0f;
+
+    std::cout << "Final price: $" << item.getFinalPrice() << std::endl;
+
+    return 0;
+}
