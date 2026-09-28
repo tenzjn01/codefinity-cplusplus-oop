@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+
+class User {
+public:
+    std::string name;
+    int age;
+    bool isAdult;
+};
+
+User registerUser(const std::string& name, int age) {
+    User newUser;
+    newUser.name = name;
+    newUser.age = age;
+    newUser.isAdult = false;
+
+    if (age >= 18) {
+        newUser.isAdult = true;
+    }
+
+    return newUser;
+}
+
+int main() {
+    std::string name = "Alice";
+    int age = 20;
+
+    User user = registerUser(name, age);
+
+    if (user.isAdult) {
+        std::cout << "Welcome, " << user.name << "! Your registration is approved." << std::endl;
+    } else {
+        std::cout << "Sorry, " << user.name << ". You must be at least 18 years old to register." << std::endl;
+    }
+
+    return 0;
+}
